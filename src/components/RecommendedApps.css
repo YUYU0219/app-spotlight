@@ -1,0 +1,68 @@
+.recommended-apps {
+  margin-bottom: 1.5rem;
+}
+
+.recommended-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.apps-container {
+  overflow-x: auto;
+  
+}
+
+.apps-list {
+  display: flex;
+  padding: 0 1rem 1rem;
+}
+
+.app-card {
+  flex: 0 0 120px;
+  margin-right: 45px;
+  width: 150px;
+  
+}
+
+.app-card:last-child {
+  margin-right: 0;
+}
+
+.app-card-container {
+    position: relative;
+    height: 250px;
+}
+
+.app-image {
+  height: 10    0px;
+  width: 150px;
+  object-fit: cover;
+  margin-top: 25px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.app-info {
+  padding: 1.5rem;
+  background: white;
+  width: 150px;
+}
+
+.app-name {
+  color: #333;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.25rem;
+  width: 100%;
+}
+
+.app-category {
+  color: #666;
+  font-size: 0.75rem;
+  width: 100%;
+} 

@@ -1,0 +1,48 @@
+.app-list-container {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.app-list-content {
+  padding: 1rem;
+}
+
+.app-list-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.app-list-avatar {
+  border-radius: 9999px;
+}
+
+.app-list-item-title {
+  color: #4b5563;
+}
+
+.app-list-item-category {
+  color: #6b7280;
+}
+
+.app-list-item-summary {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.observer-target {
+  height: 1rem;
+  width: 100%;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.no-more-apps {
+  text-align: center;
+  color: #6b7280;
+  padding: 1rem 0;
+} 
