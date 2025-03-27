@@ -9,6 +9,7 @@
 - 無限滾動載入
 - 響應式設計
 - 繁體中文介面
+- 完整的單元測試覆蓋
 
 ## 技術棧
 
@@ -18,6 +19,8 @@
 - Redux Toolkit
 - Ant Design
 - Tailwind CSS
+- Jest
+- React Testing Library
 
 ## 開始使用
 
@@ -49,6 +52,7 @@ yarn dev
 src/
   ├── app/              # Next.js 應用程式頁面
   ├── components/       # React 組件
+  │   └── __tests__/   # 組件測試文件
   ├── services/        # API 服務
   ├── store/           # Redux 狀態管理
   └── styles/          # CSS 樣式
@@ -59,6 +63,32 @@ src/
 - 使用 `npm run lint` 檢查程式碼風格
 - 使用 `npm run build` 建置專案
 - 使用 `npm run start` 啟動生產環境伺服器
+- 使用 `npm test` 運行測試
+- 使用 `npm test -- --coverage` 查看測試覆蓋率報告
+
+## 測試
+
+專案使用 Jest 和 React Testing Library 進行測試。測試文件位於 `src/components/__tests__/` 目錄下。
+
+### 測試範圍
+
+- 組件渲染測試
+- 狀態管理測試
+- 使用者互動測試
+- 無障礙功能測試
+
+### 運行測試
+
+```bash
+# 運行所有測試
+npm test
+
+# 運行特定測試文件
+npm test AppList.test.tsx
+
+# 運行測試並顯示覆蓋率報告
+npm test -- --coverage
+```
 
 ## 貢獻指南
 

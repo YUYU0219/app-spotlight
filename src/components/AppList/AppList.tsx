@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { List, Avatar, Spin } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store/store';
-import { App } from '../store/appsSlice';
-import { api } from '../services/api';
-import { setFreeApps, setLoading, setError } from '../store/appsSlice';
+import { RootState } from '../../store/store';
+import { App } from '../../store/appsSlice';
+import { api } from '../../services/api';
+import { setFreeApps, setLoading, setError } from '../../store/appsSlice';
 
 const AppList: React.FC = () => {
   const dispatch = useDispatch();
@@ -120,7 +120,7 @@ const AppList: React.FC = () => {
           <div ref={observerTarget} className="h-4 w-full">
             {loading && (
               <div className="text-center py-4">
-                <Spin />
+                <Spin aria-label="載入中" />
               </div>
             )}
             {!hasMore && displayedApps.length > 0 && (

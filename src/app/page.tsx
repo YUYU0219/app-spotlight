@@ -3,9 +3,9 @@
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
-import RecommendedApps from '../components/RecommendedApps';
-import AppList from '../components/AppList';
-import StickySearchBar from '../components/StickySearchBar';
+import RecommendedApps from '../components/RecommendedApps/RecommendedApps';
+import AppList from '../components/AppList/AppList';
+import SearchBar from '../components/SearchBar/SearchBar';
 import { api } from '../services/api';
 import { setRecommendedApps, setLoading, setError } from '../store/appsSlice';
 
@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <Provider store={store}>
       <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-        <StickySearchBar />
+        <SearchBar />
         <div className="pt-20 w-full max-w-4xl mx-auto px-4 py-8">
 
           <br/>

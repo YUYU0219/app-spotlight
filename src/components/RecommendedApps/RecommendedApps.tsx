@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import { useSelector } from 'react-redux';
-import { App, selectFilteredApps } from '../store/appsSlice';
+import { App, selectFilteredApps } from '../../store/appsSlice';
 import './RecommendedApps.css';
 
 const RecommendedApps: React.FC = () => {

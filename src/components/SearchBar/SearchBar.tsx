@@ -2,10 +2,10 @@ import React from 'react';
 import { Input } from 'antd';
 import { Search } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import { setSearchQuery } from '../store/appsSlice';
-import './StickySearchBar.css';
+import { setSearchQuery } from '../../store/appsSlice';
+import './SearchBar.css';
 
-const StickySearchBar: React.FC = () => {
+const SearchBar: React.FC = () => {
   const dispatch = useDispatch();
 
   const handleSearch = (value: string) => {
@@ -27,4 +27,4 @@ const StickySearchBar: React.FC = () => {
   );
 };
 
-export default StickySearchBar; 
+export default SearchBar; 
