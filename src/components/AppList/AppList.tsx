@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { List, Avatar, Spin } from 'antd';
+import { List, Avatar, Spin, Rate } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import { App } from '../../store/appsSlice';
@@ -88,44 +88,71 @@ const AppList: React.FC = () => {
   }, [hasMore, loading, displayedApps.length]);
 
   return (
-    <div>
-      <div className="border rounded-lg bg-white">
-        <div className="p-4">
-          <h2 className="text-2xl font-bold mb-4">應用列表</h2>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100">
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-800">應用列表</h2>
+            <span className="text-sm text-gray-500">共 {filteredApps.length} 個應用</span>
+          </div>
           <List
             itemLayout="horizontal"
             dataSource={displayedApps}
-            renderItem={(app: App) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={
-                    <Avatar
-                      src={app.image}
-                      size={64}
-                      className="rounded-full"
-                    />
-                  }
-                  title={app.name}
-                  description={
-                    <div>
-                      <p className="text-gray-600">{app.category}</p>
-                      <p className="text-sm text-gray-500">{app.summary}</p>
-                    </div>
-                  }
-                />
+            renderItem={(app: App, index: number) => (
+              <List.Item className="hover:bg-gray-50 rounded-xl transition-all duration-200 group">
+                <div className="flex items-center gap-4 w-full">
+                  <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg text-white font-bold text-lg group-hover:from-blue-600 group-hover:to-blue-700 transition-all duration-200 shadow-sm group-hover:shadow-md">
+                    {index + 1}
+                  </div>
+                  <List.Item.Meta
+                    avatar={
+                      <Avatar
+                        src={app.image}
+                        size={80}
+                        className="rounded-2xl shadow-sm group-hover:shadow-md transition-shadow"
+                      />
+                    }
+                    title={
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                          {app.name}
+                        </span>
+                        <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                          {app.category}
+                        </span>
+                      </div>
+                    }
+                    description={
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <Rate disabled defaultValue={4.5} allowHalf />
+                          <span className="text-sm text-gray-500">(1.2k)</span>
+                        </div>
+                        <p className="text-sm text-gray-600 line-clamp-2">{app.summary}</p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                          <span>4.5 MB</span>
+                          <span>•</span>
+                          <span>年齡分級 4+</span>
+                        </div>
+                      </div>
+                    }
+                  />
+                </div>
               </List.Item>
             )}
           />
           {/* 觀察目標元素 */}
           <div ref={observerTarget} className="h-4 w-full">
             {loading && (
-              <div className="text-center py-4">
+              <div className="text-center py-6">
                 <Spin aria-label="載入中" />
+                <p className="text-sm text-gray-500 mt-2">正在載入更多應用...</p>
               </div>
             )}
             {!hasMore && displayedApps.length > 0 && (
-              <div className="text-center text-gray-500 py-4">
-                沒有更多應用程式了
+              <div className="text-center py-6">
+                <div className="text-gray-400 text-sm">沒有更多應用程式了</div>
+                <div className="text-gray-300 text-xs mt-1">已顯示全部 {filteredApps.length} 個應用</div>
               </div>
             )}
           </div>
