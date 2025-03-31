@@ -1,15 +1,15 @@
-# App Store 應用程式瀏覽器
+# App Spotlight
 
-這是一個使用 Next.js 開發的應用程式瀏覽器，可以瀏覽和搜尋 App Store 上的應用程式。
+一個模仿 App Store 風格的應用展示平台，使用 Next.js 和 Tailwind CSS 構建。
 
 ## 功能特點
 
-- 瀏覽推薦應用程式
-- 搜尋應用程式
-- 無限滾動載入
-- 響應式設計
-- 繁體中文介面
-- 完整的單元測試覆蓋
+- 🎯 無限滾動加載
+- 🔍 即時搜索功能
+- 📱 響應式設計
+- 🎨 現代化 UI 設計
+- 💫 平滑的動畫效果
+- 🔄 即時數據更新
 
 ## 技術棧
 
@@ -22,85 +22,74 @@
 - Jest
 - React Testing Library
 
-## 開始使用
+## 主要功能
 
-1. 克隆專案：
+### 應用列表
+- 無限滾動加載更多應用
+- 應用卡片展示
+- 點擊查看詳細信息
+- 排名顯示
+
+### 推薦應用
+- 網格布局展示
+- 懸停預覽效果
+- 詳細信息模態框
+- 評分系統
+
+### 搜索功能
+- 即時搜索
+- 模糊匹配
+- 優雅的動畫效果
+
+## 安裝和運行
+
+1. 克隆專案
 ```bash
-git clone [您的 GitHub 倉庫 URL]
+git clone [repository-url]
 cd app-spotlight
 ```
 
-2. 安裝依賴：
+2. 安裝依賴
 ```bash
 npm install
-# 或
-yarn install
 ```
 
-3. 啟動開發伺服器：
+3. 運行開發服務器
 ```bash
 npm run dev
-# 或
-yarn dev
 ```
 
-4. 在瀏覽器中開啟 [http://localhost:3000](http://localhost:3000)
-
-## 專案結構
-
+4. 打開瀏覽器訪問
 ```
-src/
-  ├── app/              # Next.js 應用程式頁面
-  ├── components/       # React 組件
-  │   └── __tests__/   # 組件測試文件
-  ├── services/        # API 服務
-  ├── store/           # Redux 狀態管理
-  └── styles/          # CSS 樣式
+http://localhost:3000
 ```
 
-## 開發指南
+## 開發狀態
 
-- 使用 `npm run lint` 檢查程式碼風格
-- 使用 `npm run build` 建置專案
-- 使用 `npm run start` 啟動生產環境伺服器
-- 使用 `npm test` 運行測試
-- 使用 `npm test -- --coverage` 查看測試覆蓋率報告
+目前專案處於開發階段，主要功能已經實現：
+- ✅ 基礎架構搭建
+- ✅ 應用列表展示
+- ✅ 搜索功能
+- ✅ 推薦應用展示
+- ✅ 響應式設計
+- ✅ 動畫效果
 
-## 測試
+## 待優化項目
 
-專案使用 Jest 和 React Testing Library 進行測試。測試文件位於 `src/components/__tests__/` 目錄下。
-
-### 測試範圍
-
-- 組件渲染測試
-- 狀態管理測試
-- 使用者互動測試
-- 無障礙功能測試
-
-### 運行測試
-
-```bash
-# 運行所有測試
-npm test
-
-# 運行特定測試文件
-npm test AppList.test.tsx
-
-# 運行測試並顯示覆蓋率報告
-npm test -- --coverage
-```
+- [ ] 添加應用詳情頁面
+- [ ] 實現應用分類功能
+- [ ] 添加用戶評分系統
+- [ ] 優化性能
+- [ ] 添加單元測試
+- [ ] 完善錯誤處理
 
 ## 貢獻指南
 
-1. Fork 專案
-2. 建立您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 開啟 Pull Request
+歡迎提交 Issue 和 Pull Request 來幫助改進這個專案。
 
 ## 授權
 
-此專案採用 MIT 授權 - 查看 [LICENSE](LICENSE) 檔案以了解詳情
+MIT License
 
 ## Learn More
 

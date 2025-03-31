@@ -4,21 +4,27 @@ import { useSelector } from 'react-redux';
 import { App, selectFilteredApps } from '../../store/appsSlice';
 import './RecommendedApps.css';
 
+// 推薦應用程式組件
 const RecommendedApps: React.FC = () => {
+  // 從 Redux store 獲取過濾後的應用程式列表
   const filteredApps = useSelector(selectFilteredApps);
+  // 狀態管理：選中的應用程式和模態框顯示狀態
   const [selectedApp, setSelectedApp] = useState<App | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  // 顯示應用程式詳情模態框
   const showModal = (app: App) => {
     setSelectedApp(app);
     setIsModalVisible(true);
   };
 
+  // 關閉模態框
   const handleCancel = () => {
     setIsModalVisible(false);
     setSelectedApp(null);
   };
 
+  // 懸停預覽組件：顯示應用程式的簡要信息
   const AppPreview = ({ app }: { app: App }) => (
     <div className="p-4 max-w-xs">
       <div className="flex gap-4">
@@ -114,15 +120,7 @@ const RecommendedApps: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">應用截圖</h3>
-              <div className="flex gap-4 overflow-x-auto pb-4">
-                {/* 這裡可以添加應用截圖 */}
-                <div className="w-48 h-32 bg-gray-100 rounded-lg flex-shrink-0"></div>
-                <div className="w-48 h-32 bg-gray-100 rounded-lg flex-shrink-0"></div>
-                <div className="w-48 h-32 bg-gray-100 rounded-lg flex-shrink-0"></div>
-              </div>
-            </div>
+          
           </div>
         )}
       </Modal>
