@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import { App } from '../../store/appsSlice';
 import { api } from '../../services/api';
-import { setFreeApps, setLoading, setError } from '../../store/appsSlice';
+import { setFreeApps, setLoading, setError, selectFilteredFreeApps } from '../../store/appsSlice';
 
 // 應用程式列表組件
 const AppList: React.FC = () => {
   // Redux 相關
   const dispatch = useDispatch();
-  const { freeApps, searchQuery, loading } = useSelector((state: RootState) => state.apps);
+  const {searchQuery, loading } = useSelector((state: RootState) => state.apps);
   
   // 分頁相關狀態
   const [page, setPage] = useState(1);
@@ -59,11 +59,8 @@ const AppList: React.FC = () => {
     fetchApps();
   }, [dispatch]);
 
-  // 根據搜尋關鍵字過濾應用
-  const filteredApps = freeApps.filter((app: App) =>
-    app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    app.summary.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // 使用統一的選擇器
+  const filteredApps = useSelector(selectFilteredFreeApps);
 
   // 處理載入更多應用程式
   const loadMore = () => {
@@ -148,9 +145,7 @@ const AppList: React.FC = () => {
                         <span className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
                           {app.name}
                         </span>
-                        <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-                          {app.category}
-                        </span>
+                       
                       </div>
                     }
                     description={

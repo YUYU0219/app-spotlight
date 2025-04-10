@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Card, Modal, Rate, Tag, Tooltip } from 'antd';
 import { useSelector } from 'react-redux';
-import { App, selectFilteredApps } from '../../store/appsSlice';
+import { App, selectFilteredRecommendedApps } from '../../store/appsSlice';
 import './RecommendedApps.css';
 
 // 推薦應用程式組件
 const RecommendedApps: React.FC = () => {
   // 從 Redux store 獲取過濾後的應用程式列表
-  const filteredApps = useSelector(selectFilteredApps);
+  const filteredApps = useSelector(selectFilteredRecommendedApps);
   // 狀態管理：選中的應用程式和模態框顯示狀態
   const [selectedApp, setSelectedApp] = useState<App | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
